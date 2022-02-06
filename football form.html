@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="mystyle.css">
+  <script src="myScript.js"></script>
+</head>
+<body style="padding:15px;">
+<form>
+<div class="container">
+<h2 style="margin: 9px;margin-bottom:30px; text-align:center;padding:5px 0px 10px;font-size:32px;"><b>Football Registration Form</b></h2>
+<table class="styl1">
+  <tr>
+ <!--FIRST NAME-->
+    <td style="padding-top:20px;padding-bottom:20px;width:50%">
+    <label  for="fname">FIRST NAME</label>
+    <span style="color:red;"><sup>  *</sup></span>
+    <br>
+    <input onchange="checkComplete();" autocomplete="off" autofocus style="width:100%" type="text" id="fname" name="firstname" required placeholder="What is your first name?" onkeypress="return (event.charCode > 64 && 
+	event.charCode < 91) || (event.charCode > 96 && event.charCode < 123)"onkeydown="checkKeyfn(event)">
+    <p style="margin:0px;color:red;"id="fn"></p> 
+    </td>
+    
+   <!--LAST NAME-->
+  
+    <td style="padding-top:23px;padding-bottom:20px;width:50%">
+    <label for="lname">LAST NAME</label><br>
+    <input style="width:100%" type="text" id="lname" name="lastname" placeholder="What is your last name?"autocomplete="off" onkeypress="checkKey(); return (event.charCode > 64 && 
+	event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode ==32)" >
+    <p style="margin:0px;color:red;font-weight:bold;
+  font-size:15px;"id="ln"></p> 
+    </td>
+  </tr>
+  </table>
+  
+  <!--PHONE NUMBER-->
+  
+  <table class="styl1">
+  <tr>
+    <td style="padding-top:18px;">
+    <label for="fname">PHONE NUMBER</label>
+    <span style="color:red;"><sup>  *</sup></span>
+    <br>
+    
+	<divp>
+    <select style="padding:4.5px;" id="code" name="ccode">
+      <option>+91</option>
+      <option>+46</option>
+      <option>+49</option>
+    </select>
+    <input onchange="checkComplete();"autocomplete="off"  style="margin-left:2px;width:88%" type="text" id="phone" name="firstname" required placeholder="What is the best # to reach you?"onkeypress="return(event.charCode > 47 && event.charCode < 58)"onkeydown="checkKeyph(event)">
+
+    <p style="margin-top:0px;color:red;"id="ph"></p>
+    </divp>
+    </td>
+    
+    <!--E-MAIL-->
+    
+    <td style="padding-top:2px;width:33.3%;">
+    <label>EMAIL</label>
+    <span style="color:red;"><sup>  *</sup></span>
+    <label style="float:right;"class="switch">
+    <input onclick="myFunction()" id="email"type="checkbox" unchecked>
+    <span class="slider round"></span>
+    </label>
+    <br>
+    <input onchange="checkComplete();"autocomplete="off"  disabled style="width:100%" type="email" id="em" name="email"required placeholder="What is your e-mail address?" onkeypress="return(event.charCode)"onkeydown="checkEm(event)">
+    </td>
+        
+    <!--AGE GROUP-->
+    
+    <td style="width:33%;padding-top:1.5px;">
+    <label for="AGE GROUP">AGE GROUP</label>
+    <span style="color:red;"><sup>  *</sup></span>
+    <br>
+    <select onchange="ag1=1;checkComplete();" name="AGE GROUP" id="age group"  style="width:100%" required>
+      <option selected disabled hidden value="">SELECT AGE GROUP</option>
+      <option value="20-24">20-24 years</option>
+      <option value="20-24">25-29 years</option>
+      <option value="20-24">30-34 years</option>
+    </select>
+    </td>
+  </tr>
+  </table>
+  <table class="styl2">
+  
+    <!--DESIRED TEAM-->
+  
+  <tr style="border-bottom-style:none;">
+    <td style="vertical-align:top;width:25%;padding-top:15px;">     
+    <label FOR="CHELSEA">DESIRED TEAM</label>
+    <span style="color:red;"><sup>  *</sup></span>
+    <BR>
+    <input onchange="dt=1;checkComplete();" type="radio" id="CHELSEA" name="fav_language" required value="CHELSEA">
+    <label for="CHELSEA">CHELSEA</label><br>
+    <input onchange="dt=1;checkComplete();" type="radio" id="MANCHESTER UNITED"name="fav_language" value="MANCHESTER UNITED">
+    <label for="MANCHESTER UNITED">MANCHESTER UNITED</label><br>
+    <input onchange="dt=1;checkComplete();" type="radio" id="LIVERPOOL" name="fav_language" value="LIVERPOOL">
+    <label for="LIVERPOOL">LIVERPOOL</label><br>
+    <input onchange="dt=1;checkComplete();" type="radio" id="BARCELONA" name="fav_language" value="BARCELONA">
+    <label for="BARCELONA">BARCELONA</label> 
+    </td>
+   
+     <!--DESIRED POSITION-->
+    
+    <td style="width:25%;vertical-align:top;padding-top:15px;">
+    <label for="GOAL KEPPER">DESIRED POSITION</label>
+    <span style="color:red;"><sup>  *</sup></span>
+    <br>
+    <input onchange="despos(this.id);checkComplete();" type="checkbox" id="GOAL KEPPER" value="GOAL KEPPER">
+    <label for="GOAL KEPPER">GOAL KEPPER</label><br>
+    <input onchange="despos(this.id);checkComplete();" type="checkbox" id="OFFENSIVE"value="OFFENSIVE">
+    <label for="OFFENSIVE">OFFENSIVE</label> <br>
+    <input onchange="despos(this.id);checkComplete();" type="checkbox" id="DEFENSE"value="DEFENSE">
+    <label for="DEFENSE">DEFENSE</label><br>
+    <input onchange="despos(this.id);checkComplete();" type="checkbox" id="RECEIVER"value="RECEIVER">
+    <label for="RECEIVER">RECEIVER</label>      
+    </td>
+    
+     <!--ADDRESS-->
+    
+    <td class="textarea" style="width:25%;vertical-align:top;padding-top:15px;">  
+    <label for="tarea">ADDRESS</label>
+    <textarea id="tarea"style="height:130px"></textarea>
+    </td>
+    
+     <!--PINCODE-->
+    
+    <td class="pcode"style="width:25%;vertical-align:top;padding-top:15px;">
+    <label for="PINCODE">PINCODE</label><br>
+    <input onchange="checkComplete();" style="width:100%" type="text" id="PINCODE" placeholder="Enter your Pin code"onkeypress="return(event.charCode > 47 && event.charCode < 58)"autocomplete="off" onkeydown="checkKeypi(event)">
+
+    <p style="margin-top:-6px;margin-left:-5px;color:red;border-style:none;"id="pi"></p>
+   </tr> 
+   </table>
+   
+    <!--COUNTRY-->
+    
+    <table class="location">
+ <tr>
+  <td>
+    <label for="COUNTRY">COUNTRY</label>
+    <span style="color:red;"><sup>  *</sup></span>
+    <br>
+    <select onchange="c=1;checkComplete();myLocation();" id="COUNTRY" name="COUNTRY"style="width:100%"
+     required>
+       <option selected disabled hidden value="">SELECT THE COUNTRY</option>
+       <option value="INDIA">INDIA</option>
+       <option value="SWEDEN">SWEDEN</option>
+       <option value="GERMANY">GERMANY</option>
+    </select><br>
+  
+    <!--state-->
+    
+    <label for="STATE">STATE</label>
+    <span style="color:red;"><sup>  *</sup></span>
+    <br>
+    <select onchange="s=1;checkComplete();myLocation();" id="STATE" name="STATE" style="width:100%" disabled required>
+      <option selected disabled hidden value="">SELECT THE STATE</option>
+      <option id="S1" value="PUNJAB">PUNJAB</option>
+      <option id="S2" value="RAJASTHAN">RAJASTHAN</option>
+      <option id="S3" value="HIMACHAL">HIMACHAL</option>
+    </select><br>
+    <!--city-->
+    
+    <label for="CITY">CITY</label>
+    <span style="color:red;"><sup>  *</sup></span>
+    <br>
+    <select onchange="ci=1;checkComplete();" id="CITY" name="CITY" style="width:100%" disabled required>
+    <option selected disabled hidden value="">SELECT THE CITY</option>
+    <option id="C1" value="FAZILKA">FAZILKA</option>
+    <option id="C2" value="KHARAR">KHARAR</option>
+    <option id="C3" value="MOHALI">MOHALI</option>
+    </select>
+    
+    <!--button-->
+    <div style="text-align:center;margin: 90px 185px -25px 185px;">
+    <button disabled id="btnn" class="button">Phewww! Let's submit it</button>
+    </div>
+    </td>
+  </tr>
+</table>
+</div>
+</form>
+</body>
+</html>
