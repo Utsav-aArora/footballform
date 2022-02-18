@@ -49,9 +49,9 @@ public class AddServlet extends HttpServlet
 	static String city_s;
 	
 	private static Connection con=null;
-  boolean user_exist,data_exist;
+        boolean user_exist,data_exist;
     
-  //This method will use HttpServlet Request and Response To generate a dynamic page in response to what is requested. 
+        //This method will use HttpServlet Request and Response To generate a dynamic page in response to what is requested. 
     
 	public void doPost(HttpServletRequest req,HttpServletResponse res) throws IOException, ServletException
 	{		
@@ -88,12 +88,12 @@ public class AddServlet extends HttpServlet
 		 {
 			 insert();	
 			 
-			 if(data_exist == true) 	//if data exists while clicking retrieve button update page will open.
+			 if(data_exist == true)         //if data exists while clicking retrieve button update page will open.
 			 {
 				 fetch();
 			 }
 			 
-			 else 						//else page will refresh and you can enter new data. 
+			 else 				//else page will refresh and you can enter new data. 
 			 {
 				 RequestDispatcher dispatcher = req.getRequestDispatcher("/footballform_1.html");
 				 dispatcher.forward(req, res);	
@@ -357,14 +357,14 @@ public class AddServlet extends HttpServlet
 		{
 			data_exist = false;
 			System.out.println("Unable to insert !");		
-    }
+                }
     
-  }
+         }
 	
-	 //this method will extract data from the database.
+	 //This method will extract data from the database.
 	
-  public void fetch()
-	{				
+         public void fetch()
+	 {				
 		 try
 		 {
 			String sql = "Select * from user_tb1 where FirstName='"+firstname+"'";
@@ -392,7 +392,7 @@ public class AddServlet extends HttpServlet
 		 {
 			 System.out.println("Unable to Fetch!");			
 		 }				
-  }
+        }
 	 
 	//This method will check weather a user already Exists or not by matching it with the FirstName column of our database. 
 	 
