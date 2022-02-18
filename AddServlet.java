@@ -388,10 +388,12 @@ public class AddServlet extends HttpServlet
 			 System.out.println("done Fetching!");	
 			 match();	
 		 }
+		 
 		 catch(Exception e)
 		 {
 			 System.out.println("Unable to Fetch!");			
-		 }				
+		 }	
+		 
         }
 	 
 	//This method will check weather a user already Exists or not by matching it with the FirstName column of our database. 
