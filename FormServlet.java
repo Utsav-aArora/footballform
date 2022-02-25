@@ -20,38 +20,38 @@ import java.io.PrintWriter;
 
 public class AddServlet extends HttpServlet
 {
-	//Declaring static variables to store all the data received from input fields of the form.  
+    //Declaring static variables to store all the data received from input fields of the form.  
 	
-	static String firstname;
-	static String lastname;
-	static String phonenumber;
-	static String email;
-	static String agegroup;
-	static String desiredteam;
-	static String desiredposition;
-	static String address;
-	static String pincode;
-	static String country;
-	static String state;
-	static String city;
+    static String firstname;
+    static String lastname;
+    static String phonenumber;
+    static String email;
+    static String agegroup;
+    static String desiredteam;
+    static String desiredposition;
+    static String address;
+    static String pincode;
+    static String country;
+    static String state;
+    static String city;
 	
-	//Declaring static variables to stored the fetched data of an already existing user. 
-	// _s is behind the variables is indicating the stored data.
+     //Declaring static variables to stored the fetched data of an already existing user. 
+     // _s is behind the variables is indicating the stored data.
 	
-	static String firstname_s;
-	static String lastname_s;
-	static String phonenumber_s;
-	static String email_s;
-	static String agegroup_s;
-	static String desiredteam_s;
-	static String desiredposition_s;
-	static String address_s;
-	static String pincode_s;
-	static String country_s;
-	static String state_s;
-	static String city_s;
+    static String firstname_s;
+    static String lastname_s;
+    static String phonenumber_s;
+    static String email_s;
+    static String agegroup_s;
+    static String desiredteam_s;
+    static String desiredposition_s;
+    static String address_s;
+    static String pincode_s;
+    static String country_s;
+    static String state_s;
+    static String city_s;
 	
-	private static Connection con=null;
+    private static Connection con = null;
     boolean user_exist,data_exist;
     public HttpServletResponse res;
 
@@ -92,11 +92,12 @@ public class AddServlet extends HttpServlet
     			out.close();
     			System.out.println("done");
     			update();
-		   } 		
-    	   catch (Exception e) 
-    	   {
-    		   e.printStackTrace();
-		   }
+	        } 
+		   
+    	        catch (Exception e) 
+    	        {
+    		        e.printStackTrace();
+		}
     	      
     	}
     }
@@ -104,7 +105,8 @@ public class AddServlet extends HttpServlet
     @Override
     protected void doPut(HttpServletRequest req,HttpServletResponse res) throws IOException, ServletException
 	{	
-    	//connecting to the database.
+	
+    		//connecting to the database.
 		
 		 connect();
 		 
@@ -148,7 +150,7 @@ public class AddServlet extends HttpServlet
 		 city = req.getParameter("city");		 	 		
 		 res.sendRedirect("footballformm_1.html"); 
 		 		 
-    }
+        }
 			
 	//This method will connect us to our database.
 
@@ -211,10 +213,10 @@ public class AddServlet extends HttpServlet
 	
 	 //this method will extract data from the database.
 	
-   public void fetch()
-   {				
-	   try
-	   {
+         public void fetch()
+   	 {				
+	       try
+	       {
 		   String sql = "Select * from user_tb1 where FirstName='"+firstname+"'";
 		   Statement stm = con.createStatement();
 		   ResultSet result = stm.executeQuery(sql);
@@ -235,18 +237,18 @@ public class AddServlet extends HttpServlet
 		   }
 		   System.out.println("done Fetching!");	
 		   match();	
-	  }
-	  catch(Exception e)
-	  {
+	       }
+	       catch(Exception e)
+	       {
 		 System.out.println("Unable to Fetch!");			
-	  }
+	       }
 	   
-	}
+	  }
 	 
-	//This method will check weather a user already Exists or not by matching it with the FirstName column of our database. 
+	  //This method will check weather a user already Exists or not by matching it with the FirstName column of our database. 
 	 
-	public void match()
-	{		
+	  public void match()
+	  {		
 		if(firstname.equals(firstname_s))
 		{
 			user_exist = true;
@@ -258,7 +260,6 @@ public class AddServlet extends HttpServlet
 			user_exist = false;			
 			System.out.println("not Found!");
 		}
-		
 	}
 	
 	//This method will allow us to update the existing values stored in our database.
