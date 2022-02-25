@@ -100,11 +100,12 @@ public class AddServlet extends HttpServlet
 		}
     	      
     	}
+	
     }
     
     @Override
     protected void doPut(HttpServletRequest req,HttpServletResponse res) throws IOException, ServletException
-	{	
+    {	
 	
     		//connecting to the database.
 		
@@ -125,10 +126,10 @@ public class AddServlet extends HttpServlet
 		 state = req.getParameter("state");
 		 city = req.getParameter("city");	 
 		 update();	 
-	}
+       }
  
-	public void doPost(HttpServletRequest req,HttpServletResponse res) throws IOException, ServletException
-	{		
+       public void doPost(HttpServletRequest req,HttpServletResponse res) throws IOException, ServletException
+       {		
 		
 		//connecting to the database.
 		
@@ -169,8 +170,7 @@ public class AddServlet extends HttpServlet
 		catch(Exception e)
 		{
 			System.out.println("Something went Wrong!");
-		}
-		
+		}		
 		
 	}
 	
@@ -208,8 +208,9 @@ public class AddServlet extends HttpServlet
 		{
 			data_exist = false;
 			System.out.println("Unable to insert !");
-		}		
-   }
+		}	
+		
+         }
 	
 	 //this method will extract data from the database.
 	
